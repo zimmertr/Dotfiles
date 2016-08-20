@@ -73,9 +73,6 @@ alias sstop='sudo systemctl stop'
 alias sstart='sudo systemctl start'
 
 ##########SSH/VNC###########
-alias sshjupiter='ssh -p 2022 tj@192.168.1.3'
-alias sshmars='ssh tj@192.168.1.4'
-alias sshmercury='ssh tj@192.168.1.2'
 alias ws='xfreerdp -g 1920x1080 winserv.cis.gvsu.edu'
 alias ssheos='ssh -X zimmerth@eos04.cis.gvsu.edu'
 alias rdpio='xfreerdp -g 1920x1080 -d sol.milkyway -u Administrator io'
