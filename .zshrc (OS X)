@@ -2,17 +2,21 @@
 #########ZSH SETTINGS#########
 ##############################
 export ZSH=/Users/tzimmerman/.oh-my-zsh
-HYPHEN_INSENSITIVE="true"
+export HOMEBREW_GITHUB_API_TOKEN=2d8c3ed59014e0d62548e2663580d9b6d5d7cb73
+export CLICOLOR=1
+export PATH="/usr/local/sbin:$PATH"
 export UPDATE_ZSH_DAYS=30
+
 ENABLE_CORRECTION="true"
+HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="mm/dd/yyyy"
 plugins=(git brew gitfast git-extras git-flow git-flow-avh git-hubflow git_remote_branch gradle history)
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 source $ZSH/oh-my-zsh.sh
 source /Users/tzimmerman/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export HOMEBREW_GITHUB_API_TOKEN=2d8c3ed59014e0d62548e2663580d9b6d5d7cb73
-export CLICOLOR=1
-fpath=(/usr/local/share/zsh-completions $fpath)
+
 
 
 ##############################
@@ -69,12 +73,6 @@ alias work='vim ~/Dropbox/Miscellaneous/Work.txt'
 alias money='vim ~/Dropbox/Miscellaneous/Money.txt'
 alias lab='vim ~/Dropbox/Miscellaneous/Lab.txt'
 
-#############SSH#############
-alias sshjupiter='ssh -p 2022 tj@tjzimmerman.com'
-alias ws='xfreerdp -d cis -u zimmerth -g 1440x900 winserv.cis.gvsu.edu'
-alias ssheos='ssh -X zimmerth@eos04.cis.gvsu.edu'
-alias eo='xfreerdp --no-nla -d bluemedora.localnet -u bluemedora\\tzimmerman eo-win12'
-export PATH="/usr/local/sbin:$PATH"
 
 PATH="/Users/tzimmerman/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/Users/tzimmerman/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
