@@ -37,4 +37,4 @@ As someone that uses a terminal every day for both work and play, I have found t
 - Wildmenu is enabled
 
 ##Screenshot of commands demonstrating configuration
-![Alt text](https://raw.githubusercontent.com/zimmertr/zsh-configuration/master/shell.png "Shell demonstrating configuration")
+![Alt text](https://raw.githubusercontent.com/zimmertr/zsh-Configuration/master/shell.png "Shell demonstrating configuration")
