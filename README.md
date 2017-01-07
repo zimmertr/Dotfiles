@@ -1,3 +1,3 @@
 # Dotfiles
 
-A collection of my dotfiles.
+A collection of some of my dotfiles that aren't significant enough to have their own repo.
