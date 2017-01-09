@@ -4,6 +4,7 @@ As someone that uses a terminal every day for both work and play, I have found t
 
 ##My configuration tweaks zsh to my liking by:
 
+```
 - Taking advantage of over 15 plugins including ph-my-zsh, zsh-syntax-highlighting, and more  
 - Implementing a heavily customized PS1 prompt that displays:  
 	-Current absolute directory  
@@ -27,14 +28,17 @@ As someone that uses a terminal every day for both work and play, I have found t
 - Disabling hyphen insensitivity  
 - Setting Vim as my default editor
 - Modifying path variables and many other system settings
+```
 
 ##Vim is also configured in the following ways:
 
+```
 - Line numbers are displayed automatically
 - Syntax highlighting is enabled
 - Set to use the `slate` theme automatically
 - Cursorline is enabled
 - Wildmenu is enabled
+```
 
 ##Screenshot of commands demonstrating configuration
 ![Alt text](https://raw.githubusercontent.com/zimmertr/zsh-Configuration/master/shell.png "Shell demonstrating configuration")
