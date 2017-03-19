@@ -1,8 +1,8 @@
-#zsh Configuration
+# zsh Configuration
 
 As someone that uses a terminal every day for both work and play, I have found that zsh offers me the best experience in terms of speed, customizability, and advanced features. This repository is a collection of my configuration files pertaining to zsh for both home and work as well as my standard vimrc as I didn't know where else to put it.
 
-##My configuration tweaks zsh to my liking by:
+## My configuration tweaks zsh to my liking by:
 
 ```
 - Taking advantage of over 15 plugins including ph-my-zsh, zsh-syntax-highlighting, and more  
@@ -30,7 +30,7 @@ As someone that uses a terminal every day for both work and play, I have found t
 - Modifying path variables and many other system settings
 ```
 
-##Vim is also configured in the following ways:
+## Vim is also configured in the following ways:
 
 ```
 - Line numbers are displayed automatically
@@ -40,5 +40,5 @@ As someone that uses a terminal every day for both work and play, I have found t
 - Wildmenu is enabled
 ```
 
-##Screenshot of commands demonstrating configuration
+## Screenshot of commands demonstrating configuration
 ![Alt text](https://raw.githubusercontent.com/zimmertr/zsh-Configuration/master/shell.png "Shell demonstrating configuration")
