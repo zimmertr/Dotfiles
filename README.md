@@ -38,6 +38,13 @@ As someone that uses a terminal every day for both work and play, I have found t
 - Set to use the `slate` theme automatically
 - Cursorline is enabled
 - Wildmenu is enabled
+- Space bar will hide search results
+- Tab indentations are converted to spaces
+- Ruler is shown
+- Persistant history is enabled
+- Lazy redraw is enabled
+- Auto indent is enabled
+- Incrementing search
 ```
 
 ## Screenshot of commands demonstrating configuration
