@@ -91,8 +91,7 @@ export PS1='
 ############################
 
 ########ZSH Things##########
-alias updatezsh='source ~/.zshrc'
-alias aliases='vim ~/.zshrc'
+alias aliases='vim ~/.zshrc && source ~/.zshrc'
 
 #########Package Things#########
 alias install='sudo apt-get install -y'
@@ -138,8 +137,8 @@ alias reboot='sudo reboot'
 alias suspend='sudo pm-suspend'
 alias externalip='wget http://ipinfo.io/ip -qO -' #find external ip
 alias getips="nmap -nsP 192.168.1.1/24 | grep '192.168.1.*' | awk '{print $5}'"
-
-
+alias multihead="startx /home/tj/Scripts/xinitrc_multihead"
+alias singlehead="startx /home/tj/Scripts/xinitrc_singlehead"
 
 
 #Function defined for controlling the backlight. ex: bl max | bl min | bl mid | bl 73
@@ -168,3 +167,13 @@ function bl(){
         echo Current Brightness: $(xbacklight -get)
     fi
 }
+
+
+#Function defined for catting files + their filenames.
+function catall(){
+	find . -name \*$1 -print -exec cat {} \;
+}
+
+export PATH=$PATH:/usr/bin/azure-cli
+autoload bashcompinit && bashcompinit
+source '/usr/bin/azure-cli/az.completion'
