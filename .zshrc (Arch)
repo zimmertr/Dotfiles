@@ -143,3 +143,8 @@ alias reboot='sudo reboot'
 alias suspend='sudo pm-suspend'
 alias externalip='wget http://ipinfo.io/ip -qO -' #find external ip
 alias getips="nmap -nsP 192.168.1.1/24 | grep '192.168.1.*' | awk '{print $5}'"
+
+#Function defined for catting files + their filenames.
+function catall(){
+    find . -name \*$1 -print -exec cat {} \;
+}
