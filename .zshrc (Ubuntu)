@@ -144,7 +144,6 @@ alias getips="nmap -nsP 192.168.1.1/24 | grep '192.168.1.*' | awk '{print $5}'"
 alias multihead="startx /home/tj/Scripts/xinitrc_multihead"
 alias singlehead="startx /home/tj/Scripts/xinitrc_singlehead"
 alias azure="az"
-alias fileserver="sudo mount -t cifs -o user=movere,uid=1001,gid=1001,password=@Unified.1! //10.22.7.147/samba /mnt/Fileserver"
 alias kubehealth="kubectl describe nodes | grep -A 2 -e '^\\s*CPU Requests'"
 
 #Function defined for controlling the backlight. ex: bl max | bl min | bl mid | bl 73
