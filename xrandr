@@ -1,0 +1,16 @@
+Dir: /home/tj/git/zsh-Configuration [master] 
+Usr: tj - Thu 2, 10:27AM > xrandr --output DP-2-1 --mode 1920x1080 --pos 3840x0 --rotate normal --output DP-1-2 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-3 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output eDP-1 --off
+
+sed -i 's/15px/12px/' /home/tj/.config/i3/config
+sed -i 's/tray_output\ eDP-1/tray_output\ DP-1-3/' /home/tj/.config/i3/config
+sed -i 's/height\ 25/height\ 20/' /home/tj/.config/i3/config
+feh --bg-fill "/mnt/Data/Pictures/Mars.jpg"
+
+Dir: /home/tj/git/zsh-Configuration [master] 
+Usr: tj - Thu 2, 10:28AM > xrandr --output DP-1-2 --off --output DP-2-1 --off --output DP-1-3 --off --output eDP-1 --scale .6x.6 --mode 3840x2160 --primary
+
+sed -i 's/12px/15px/' /home/tj/.config/i3/config
+sed -i 's/tray_output\ DP-1-3/tray_output\ eDP-1/' /home/tj/.config/i3/config
+sed -i 's/height\ 20/height\ 25/' /home/tj/.config/i3/config
+#sed -i 's/enp14s0u1u2/wlp2s0/' /etc/i3blocks.conf
+feh --bg-fill "/mnt/Data/Pictures/Mars.jpg"
