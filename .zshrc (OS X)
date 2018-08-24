@@ -2,7 +2,6 @@
 #########ZSH SETTINGS#########
 ##############################
 export ZSH=/Users/tzimmerman/.oh-my-zsh
-export HOMEBREW_GITHUB_API_TOKEN=2d8c3ed59014e0d62548e2663580d9b6d5d7cb73
 export CLICOLOR=1
 export PATH="/usr/local/sbin:$PATH"
 export UPDATE_ZSH_DAYS=30
