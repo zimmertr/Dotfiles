@@ -13,17 +13,37 @@ HIST_STAMPS="mm/dd/yyyy"
 ZSH_THEME="robbyrussell"
 
 plugins=(git brew gitfast git-extras git-flow git-flow-avh git-hubflow git_remote_branch gradle history)
+
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 source $ZSH/oh-my-zsh.sh
 ##############################
 ####PROMPT CUSTOMIZATIONS#####
 ##############################
-autoload -U promptinit
-export PS1="
-%F{cyan}%BCom: %M%f
-%F{magenta}%BDir: %d
-%F{blue}%BUsr: %n - %B%w,%@%f >%b%f"
+autoload -Uz vcs_info
+setopt prompt_subst
+
+zstyle ':vcs_info:*' stagedstr 'S' 
+zstyle ':vcs_info:*' unstagedstr 'D' 
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' actionformats '%F{251}[%F{203}%b%F{251}|%F{2}%a%F{3}]%f '
+zstyle ':vcs_info:*' formats \
+      '%F{white}[%F{cyan}%b%F{white}] %F{2}%c%F{3}%u%f'
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+zstyle ':vcs_info:*' enable git 
++vi-git-untracked() {
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        [[ $(git ls-files --other --directory --exclude-standard | sed q | wc -l | tr -d ' ') == 1 ]] ; then
+    hook_com[unstaged]+='%F{1}U%f'
+fi
+}
+
+precmd () { vcs_info }
+#PROMPT='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_} %f%# '
+
+export PS1='
+%F{magenta}%BDir: %d ${vcs_info_msg_0_}
+%F{blue}%BUsr: %n - %B%w, %@%f >%b%f '
 
 ##############################
 #########ZSH ALIASES##########
@@ -33,7 +53,7 @@ export PS1="
 alias updatezsh='source ~/.zshrc'
 alias aliases='vim ~/.zshrc'
 
-##########HOMEBERW############
+##########HOMEBERW############ 
 alias install='brew install'
 alias search='brew search'
 alias uninstall='brew remove'
@@ -46,3 +66,4 @@ alias externalip='curl ifconfig\.me/ip' #find external ip
 alias internalip='ipconfig getifaddr en0'
 alias sublime='subl'
 alias clearh="echo -ne '\033]50;ClearScrollback\a'"
+
