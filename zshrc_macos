@@ -1,22 +1,36 @@
-##############################
-#########ZSH SETTINGS#########
-##############################
-export ZSH="/Users/tj/.oh-my-zsh"
-export CLICOLOR=1
-export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+############################
+########ZSH SETTINGS########
+############################
+setopt correctall
+
+
+############################
+#######ZSH-COMPLETIONS######
+############################
+autoload -Uz compinit
+autoload -Uz vcs_info
+autoload -U promptinit
+compinit
+zstyle :compinstall filename '/home/tj/.zshrc'
+
+
+############################
+########ENV VARIABLES#######
+############################
+export VISUAL=vim
+export EDITOR="$VISUAL"
 export UPDATE_ZSH_DAYS=30
+export CLICOLOR=1
+export ZSH=$HOME/.oh-my-zsh
+export PATH="/usr/bin:/usr/sbin:/sbin:/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+export ZSH_THEME="robbyrussell"
+export DISABLE_AUTO_UPDATE="true"
+export ENABLE_CORRECTION="true"
+export COMPLETION_WAITING_DOTS="true"
+export HIST_STAMPS="mm/dd/yyyy"
+export HYPHEN_INSENSITIVE="true"
 
-ENABLE_CORRECTION="true"
-HYPHEN_INSENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="mm/dd/yyyy"
-ZSH_THEME="robbyrussell"
 
-plugins=(git brew gitfast git-extras git-flow git-flow-avh git-hubflow git_remote_branch gradle history)
-
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-source $ZSH/oh-my-zsh.sh
 ##############################
 ####PROMPT CUSTOMIZATIONS#####
 ##############################

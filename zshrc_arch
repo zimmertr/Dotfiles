@@ -144,6 +144,9 @@ alias externalip='wget http://ipinfo.io/ip -qO -' #find external ip
 alias getips="nmap -nsP 192.168.1.1/24 | grep '192.168.1.*' | awk '{print $5}'"
 alias myeyes='pgrep redshift | xargs sudo kill -9; redshift -O 3700'
 
+########Git###########
+alias gituntracked="git ls-files --others --exclude-standard"
+
 
 ############################
 #######ZSH FUNCTIONS########
