@@ -1,28 +1,40 @@
 ############################
 ########ZSH SETTINGS########
 ############################
-ZSH_THEME="robbyrussell"
-DISABLE_AUTO_UPDATE="true"
-ENABLE_CORRECTION="true"
-COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="mm/dd/yyyy"
-HYPHEN_INSENSITIVE="true"
+setopt correctall
 
+
+############################
+#######ZSH-COMPLETIONS######
+############################
+autoload -Uz compinit
+autoload -Uz vcs_info
+autoload -U promptinit
+compinit
+zstyle :compinstall filename '/home/tj/.zshrc'
+
+
+############################
+########ENV VARIABLES#######
+############################
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export UPDATE_ZSH_DAYS=30
 export CLICOLOR=1
 export ZSH=$HOME/.oh-my-zsh
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/tj/go/bin"
-export GOPATH=/home/tj/go
+export PATH="/usr/bin"
+export ZSH_THEME="robbyrussell"
+export DISABLE_AUTO_UPDATE="true"
+export ENABLE_CORRECTION="true"
+export COMPLETION_WAITING_DOTS="true"
+export HIST_STAMPS="mm/dd/yyyy"
+export HYPHEN_INSENSITIVE="true"
 
-setopt correctall
-autoload -Uz compinit
-compinit
-autoload -Uz vcs_info
-autoload -U promptinit
+
+############################
+########Add. Configs########
+############################
 source /home/tj/.zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 
-zstyle :compinstall filename '/home/tj/.zshrc'
 
 
 ############################
@@ -60,9 +72,7 @@ source $ZSH/oh-my-zsh.sh
 #%F{blue}%n: %B%w,%@%f >%b%f'
 
 #######New PS1 Configuration
-
 setopt prompt_subst
-
 zstyle ':vcs_info:*' stagedstr 'S' 
 zstyle ':vcs_info:*' unstagedstr 'D' 
 zstyle ':vcs_info:*' check-for-changes true
@@ -86,7 +96,6 @@ export PS1='
 %F{blue}%BUsr: %n - %B%w, %@%f >%b%f '
 
 
-
 ############################
 ########ZSH ALIASES#########
 ############################
@@ -96,16 +105,16 @@ alias updatezsh='source ~/.zshrc'
 alias aliases='vim ~/.zshrc'
 
 #########Package Things#########
-alias install='pacaur -S'
-alias installpkg='pacaur -U' 
-alias uninstall='pacaur -R'
-alias upgrade='pacaur -Syu --noconfirm' 
-alias search='pacaur -Ss' #Search default repository for packages
-alias info='pacaur -Si' #Return information on a given package.
-alias installed='pacaur -Qet' #List all installed packages.
-alias fixlock='sudo rm -rf /tmp/pacaurtmp-*' #Remove the lock generated when interrupting Pacman.
+alias install='yay -S'
+alias installpkg='yay -U' 
+alias uninstall='yay -R'
+alias upgrade='yay -Syu --noconfirm' 
+alias search='yay -Ss' #Search default repository for packages
+alias info='yay -Si' #Return information on a given package.
+alias installed='yay -Qet' #List all installed packages.
+alias fixlock='sudo rm -rf /tmp/yaytmp-*' #Remove the lock generated when interrupting Pacman.
 
-######SystemCTL Stuff#######
+#######Systemd Stuff########
 alias senable='sudo systemctl enable'
 alias srestart='sudo systemctl restart'
 alias sstatus='sudo systemctl status'
@@ -113,30 +122,18 @@ alias sstop='sudo systemctl stop'
 alias sstart='sudo systemctl start'
 
 ##########SSH/VNC###########
-alias rdpio='xfreerdp -g 1600x900 -d sol.milkyway -u Administrator io'
 alias vpnsol='sudo openvpn /home/tj/Keys/home/tjzimmerman.com.ovpn'
-alias vpnul='sudo openvpn /home/tj/Keys/unified_logic/Network/Bellevue.ovpn'
-
-#########Text Files#########
-alias todo='vim /media/Data/Dropbox/Miscellaneous/Todo.txt'
-alias school='vim /media/Data/Dropbox/Miscellaneous/School.txt'
-alias work='vim /media/Data/Dropbox/Miscellaneous/Work.txt'
-alias money='vim /media/Data/Dropbox/Miscellaneous/Money.txt'
-alias lab='vim /media/Data/Dropbox/Miscellaneous/Lab.txt'
-
 
 ######Modified Programs#####
-alias mount='mount | column -t'
 alias ls='clear;ls -alGFirth --color'
-alias ...='cd ../..'
+alias subl3='subl3 -a'
+alias subl='subl3 -a'
 
 ######Directory Things######
 alias filesrec='sudo find . -type f | wc -l' #Recursively determine number of files in filesystem.
 alias files='ls -F |grep -v / | wc -l' #Determine number of files in current directory
 alias size='du -hs * | sort -hr'
-alias cdd='cd ~/Desktop'
-alias cdn='cd /media/NetDrive/'
-alias cdda='cd /media/Data/'
+alias ...='cd ../..'
 
 #######Miscellaneous########
 alias website='wget --limit-rate=200k --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla'
@@ -145,11 +142,8 @@ alias reboot='sudo reboot'
 alias suspend='sudo pm-suspend'
 alias externalip='wget http://ipinfo.io/ip -qO -' #find external ip
 alias getips="nmap -nsP 192.168.1.1/24 | grep '192.168.1.*' | awk '{print $5}'"
-alias multihead="startx /home/tj/.xinitrc_multihead; sudo sed -i 's/wlp2s0/enp14s0u1u2/' /etc/i3blocks.conf'"
-alias singlehead="startx /home/tj/.xinitrc_singlehead; sudo sed -i 's/enp14s0u1u2/wlp2s0/' /etc/i3blocks.conf'"
-alias steam='primusrun steam'
 alias myeyes='pgrep redshift | xargs sudo kill -9; redshift -O 3700'
-alias fixtime='sudo systemctl stop ntpd; sudo ntpdate -s time.nist.gov; sudo systemctl start ntpd'
+
 
 ############################
 #######ZSH FUNCTIONS########
@@ -159,40 +153,3 @@ alias fixtime='sudo systemctl stop ntpd; sudo ntpdate -s time.nist.gov; sudo sys
 function catall(){
     find . -name \*$1 -print -exec cat {} \;
 }
-
-#Function defined for controlling the backlight. ex: bl max | bl min | bl mid | bl 73
-function bl(){
-	if [[ $1 == "ultra" ]]
-	then
-		echo Previous Brightness: $(xbacklight -get)
-        $(xbacklight -time 500 -set 100)
-		echo Current Brightness: $(xbacklight -get)
-		echo Increasing Contrast... Ctrl+c to stop
-		while true; do xrandr --output eDP1 --brightness 1.2; done
-    elif [[ $1 == "max" ]]
-    then
-        echo Previous Brightness: $(xbacklight -get)
-        $(xbacklight -time 500 -set 100)
-        echo Current Brightness: $(xbacklight -get)
-    elif [[ $1 == "min" ]]
-    then
-        echo Previous Brightness: $(xbacklight -get)
-        $(xbacklight -time 500 -set 1)
-        echo Current Brightness: $(xbacklight -get)
-    elif [[ $1 == "mid" ]]
-    then    
-        echo Previous Brightness: $(xbacklight -get)
-        $(xbacklight -time 500 -set 50)
-        echo Current Brightness: $(xbacklight -get)
-    elif [[ $1 == "" ]]
-    then
-        echo Current Brightness: $(xbacklight -get)
-    else
-        echo Previous Brightness: $(xbacklight -get)
-        $(xbacklight -time 500 -set $1)
-        echo Current Brightness: $(xbacklight -get)
-    fi
-}
-
-autoload bashcompinit && bashcompinit
-source /usr/bin/azure-cli/az.completion

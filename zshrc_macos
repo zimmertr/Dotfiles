@@ -66,4 +66,7 @@ alias externalip='curl ifconfig\.me/ip' #find external ip
 alias internalip='ipconfig getifaddr en0'
 alias sublime='subl'
 alias clearh="echo -ne '\033]50;ClearScrollback\a'"
+alias ls="clear;ls -alFirth"
 
+########Git###########
+alias gituntracked="git ls-files --others --exclude-standard"
