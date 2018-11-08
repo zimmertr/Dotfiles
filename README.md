@@ -10,6 +10,10 @@ Aliases, functions, PS1 prompt, git integration, and more.
 
 Syntax highlighting, line numbers, history files, auto indentation, etc.
 
+## Terminator
+
+Focus follow mouse, custom color scheme, fixed keybindings, transparency, yadda. 
+
 ## Sublime Text Editor
 
 Basically just fixing annoying defualt features.
