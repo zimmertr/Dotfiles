@@ -14,6 +14,10 @@ Syntax highlighting, line numbers, history files, auto indentation, etc.
 
 Focus follow mouse, custom color scheme, fixed keybindings, transparency, yadda. 
 
+## iterm2
+
+Colors, shortcuts, ya know. The usual.
+
 ## Sublime Text Editor
 
 Basically just fixing annoying defualt features.
