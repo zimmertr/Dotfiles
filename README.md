@@ -14,5 +14,4 @@ Syntax highlighting, line numbers, history files, auto indentation, etc.
 
 Basically just fixing annoying defualt features.
 
-## Screenshot of commands demonstrating configuration
 ![Alt text](https://raw.githubusercontent.com/zimmertr/zsh-Configuration/master/shell.png "Shell demonstrating configuration")
