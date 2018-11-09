@@ -27,6 +27,8 @@ export ZSH_THEME="robbyrussell"
 export DISABLE_AUTO_UPDATE="true"
 export ENABLE_CORRECTION="true"
 export COMPLETION_WAITING_DOTS="true"
+export HISTFILE=~/.zsh_history
+export SAVEHIST=1000000
 export HIST_STAMPS="mm/dd/yyyy"
 export HYPHEN_INSENSITIVE="true"
 
