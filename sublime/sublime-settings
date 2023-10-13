@@ -1,11 +1,9 @@
 {
-	"always_show_minimap_viewport": true,
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_with_fields": true,
 	"auto_complete_trailing_symbols": true,
 	"bold_folder_labels": true,
 	"detect_indentation": true,
-	"draw_minimap_border": true,
 	"ensure_newline_at_eof_on_save": true,
 	"hardware_acceleration": "opengl",
 	"font_size": 18,

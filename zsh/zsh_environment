@@ -1,2 +1,9 @@
 export EDITOR=vim
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+export KUBE_PS1_PREFIX=''
+export KUBE_PS1_SYMBOL_ENABLE=false
+export KUBE_PS1_NS_ENABLE=false
+export KUBE_PS1_DIVIDER=" - "
+export KUBE_PS1_SUFFIX=""
+export KUBE_PS1_CTX_COLOR="cyan"
