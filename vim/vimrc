@@ -1,0 +1,23 @@
+syntax on
+
+set autoindent
+set backspace=indent,eol,start
+set expandtab
+set history=1000
+set hlsearch
+set ignorecase
+set incsearch
+set number
+set ruler
+set shiftwidth=4
+set showmatch
+set smartcase
+set smartindent
+set softtabstop=4
+set tabstop=4
+set undofile
+set wildmenu
+
+filetype on
+filetype indent on
+filetype plugin on

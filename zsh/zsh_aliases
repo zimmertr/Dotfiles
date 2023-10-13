@@ -1,0 +1,27 @@
+# Helpers
+alias clearh="echo -ne '\033]50;ClearScrollback\a'"
+alias externalip='curl ifconfig\.me/ip'
+alias flush="sudo arp -d -a; dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+
+# ZSH
+alias aliases="vim ~/.zsh_aliases"
+alias updatezsh="source ~/.zshrc"
+
+# Tweaks
+alias ls="clear;ls -alFGirth"
+alias tree="tree -CFh"
+
+# Programs
+alias sublime='subl'
+alias typora="open -a typora"
+
+# Git
+alias gitdiff="git --no-pager diff"
+alias gitfp="git fetch --all && git pull"
+alias gitlog="git log --oneline --decorate --graph --all"
+alias gituntracked="git ls-files --others --exclude-standard"
+
+# Kubernetes
+alias kkustomize="kubectl kustomize --enable-helm"
+alias kneat="kubectl-neat"
+alias kuebctl='kubectl'
