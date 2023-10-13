@@ -1,3 +1,6 @@
+[core]
+    excludesfile = /Users/tj/.gitignore
+
 [init]
     defaultBranch = main
 
