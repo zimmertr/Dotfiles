@@ -1,3 +1,6 @@
+[core]
+    excludesfile = /Users/tj/.gitignore
+
 [init]
     defaultBranch = main
 
@@ -10,5 +13,3 @@
 [user]
     email = tj@tjzimmerman.com
     name = TJ Zimmerman
-[core]
-	excludesfile = /Users/tj/.gitignore
