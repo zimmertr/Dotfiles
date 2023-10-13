@@ -1,0 +1,9 @@
+# MacOS
+.DS_Store
+
+# Terraform
+.terraform*
+*.tfstate*
+
+# Vim
+*.un~
