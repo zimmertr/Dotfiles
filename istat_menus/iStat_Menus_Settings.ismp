@@ -327,6 +327,7 @@
 		<integer>0</integer>
 		<key>StatusItems-Order</key>
 		<array>
+			<integer>9</integer>
 			<integer>5</integer>
 			<integer>4</integer>
 			<integer>3</integer>
@@ -383,6 +384,14 @@
 				<string>WillyWeather (BoM) - Australia Only</string>
 			</dict>
 		</array>
+		<key>Weather_DropdownHideDecimals</key>
+		<integer>1</integer>
+		<key>Weather_DropdownOrderDisabled</key>
+		<string></string>
+		<key>Weather_Mode</key>
+		<integer>1</integer>
+		<key>Weather_TimeUnits</key>
+		<integer>0</integer>
 		<key>Zarya-TLE</key>
 		<dict>
 			<key>time</key>
