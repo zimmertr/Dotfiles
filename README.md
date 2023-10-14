@@ -48,3 +48,10 @@ ln -s ~/git/personal/Dotfiles/git/gitignore ~/.gitignore
 
 1. Navigate to: `Cogwheel -> Import`
 2. Select `~/git/personal/Dotfiles/rectangle/RectangleConfig.json`
+
+### iStat Menus
+
+1. Navigate to: `File -> Import Settings`
+2. Select `~/git/personal/Dotfiles/istat_menus/iStat_Menus_Settings.ismp`
+3. Navigate to: `iStat Menus -> Registration`
+4. Enter the license key. 
