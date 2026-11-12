@@ -44,10 +44,6 @@ alias gitlog="git log --oneline --decorate --graph --all"
 alias gittag="git --no-pager tag"
 alias gituntracked="git ls-files --others --exclude-standard"
 
-gitdb() {
-  git checkout "$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)"
-}
-
 
 ##############################
 # Kubernetes
@@ -60,39 +56,3 @@ alias kneat="kubectl-neat"
 # Kustomize
 alias kkustomize="kubectl kustomize --enable-helm --load-restrictor=LoadRestrictionsNone"
 alias kkkustomize="kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone"
-
-kget() {
-    if [ "$1" = "kind" ]
-    then
-        kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone "$2" | yq e "select(.kind == \"$3\")" -
-    elif [ "$1" = "name" ]
-    then
-        kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone "$2" | yq e "select(.metadata.name == \"$3\")" -
-    else
-        kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone "$1"
-    fi
-}
-
-kwatch() {
-    if [ $1 = "kind" ]
-    then
-        watch -n .1 -d "kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone $2 | yq e 'select(.kind == \"$3\")' -"
-    elif [ $1 = "name" ]
-    then
-        watch -n .1 -d "kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone $2 | yq e 'select(.metadata.name == \"$3\")' -"
-    else
-        watch -n .1 -d "kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone $1"
-    fi
-}
-
-
-##############################
-# Claude Code
-##############################
-# Claude Code through LiteLLM, so Claude can hand work to local models as subagents.
-claude-hybrid() {
-  ANTHROPIC_BASE_URL=http://192.168.40.142:4000 \
-  ANTHROPIC_CUSTOM_HEADERS="x-litellm-api-key: Bearer $(jq -r '.litellm.env.LITELLM_MASTER_KEY' ~/.claude/secrets.json)" \
-  CLAUDE_CODE_MAX_CONTEXT_TOKENS=262144 \
-  claude "$@"
-}

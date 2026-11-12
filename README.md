@@ -41,6 +41,7 @@ The ZSH and Git files work on both macOS and Linux. Anything OS specific is guar
 ```bash
 ln -s ~/git/personal/Dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/git/personal/Dotfiles/zsh/zsh_aliases ~/.zsh_aliases
+ln -s ~/git/personal/Dotfiles/zsh/zsh_functions ~/.zsh_functions
 ln -s ~/git/personal/Dotfiles/zsh/zsh_environment ~/.zsh_environment
 ```
 

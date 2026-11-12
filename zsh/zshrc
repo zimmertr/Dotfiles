@@ -27,6 +27,7 @@ source $ZSH/oh-my-zsh.sh
 
 # After Oh My Zsh, which defines its own ls alias.
 source ~/.zsh_aliases
+source ~/.zsh_functions
 
 
 ##############################
