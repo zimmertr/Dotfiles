@@ -2,11 +2,13 @@
 
 * [Summary](#summary)
 * [Installation](#installation)
+    - [Homebrew](#homebrew)
     - [ZSH](#zsh)
     - [Vim](#vim)
     - [Git](#git)
     - [Iterm2](#iterm2)
     - [Rectangle](#rectangle)
+    - [iStat Menus](#istat-menus)
 
 ## Summary
 
@@ -15,6 +17,22 @@ I live by the terminal, and therefore by my personal configs. Here is a collecti
 <hr>
 
 ## Installation
+
+### Homebrew
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew bundle --file=~/git/personal/Dotfiles/Brewfile
+kubectl krew install neat get-all
+```
+
+Add two spaces to the dock:
+
+```bash
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+killall Dock
+```
 
 ### ZSH
 

@@ -51,6 +51,12 @@ then
   compinit
 fi
 
+# CLIs that ship their own completions instead of a site-functions file
+autoload -Uz bashcompinit && bashcompinit
+source <(kubectl completion zsh)
+source <(kubectl-argo-rollouts completion zsh)
+complete -C '/opt/homebrew/bin/aws_completer' aws
+
 ##############################
 # PROMPT
 ##############################
