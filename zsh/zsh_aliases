@@ -1,22 +1,31 @@
-# Helpers
-alias clearh="echo -ne '\033]50;ClearScrollback\a'"
-alias externalip='curl ifconfig\.me/ip'
-alias internalip='ipconfig getifaddr en0'
-alias flush="sudo arp -d -a; dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
-
-# ZSH
+##############################
+# Shell
+##############################
 alias aliases="vim ~/.zsh_aliases"
 alias updatezsh="source ~/.zshrc"
-
-# Tweaks
-alias ls="clear;ls -alFGirth"
 alias tree="tree -CFh"
 
-# Programs
+# Tools
+alias externalip='curl ifconfig\.me/ip'
 alias sublime='subl'
+
+
+##############################
+# macOS
+##############################
+# BSD ls: -G is color here, but means "no group" in GNU ls.
+alias ls="clear;ls -alFGirth"
+alias flush="sudo arp -d -a; dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+alias internalip='ipconfig getifaddr en0'
 alias typora="open -a typora"
 
+# iTerm2
+alias clearh="echo -ne '\033]50;ClearScrollback\a'"
+
+
+##############################
 # Git
+##############################
 alias gitdiff="git --no-pager diff"
 alias gitfiles="git --no-pager diff --name-only"
 alias gitfp="git fetch --all && git pull"
@@ -28,25 +37,14 @@ gitdb() {
   git checkout "$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)"
 }
 
+
+##############################
 # Kubernetes
+##############################
 alias k='kubectl'
-alias kall="kubectl-get_all"
-alias kkustomize="kubectl kustomize --enable-helm --load-restrictor=LoadRestrictionsNone"
-alias kkkustomize="kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone"
-alias kneat="kubectl-neat"
 alias kuebctl='kubectl'
-
-get_all_kube_resources() {
-  local namespace=${1:?Must provide a namespace}
-  kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n ${namespace}
-}
-
-get_role_and_clusterRole_by_serviceAccount() {
-  local sa=${1:?Must provide a serviceAccount}
-  echo "Role and ClusterRole for $sa"
-  kubectl get rolebinding,clusterrolebinding --all-namespaces -o jsonpath='{range .items[?(@.subjects[0].name=="'"$sa"'")]}[{.roleRef.kind},{.roleRef.name}]{end}'
-  echo
-}
+alias kall="kubectl-get_all"
+alias kneat="kubectl-neat"
 
 kexec() {
   kubectl get pods -n $1
@@ -74,17 +72,21 @@ kexec() {
   unset numContainers containerName
 }
 
-kwatch() {
-    if [ $1 = "kind" ]
-    then
-        watch -n .1 -d "kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone $2 | yq e 'select(.kind == \"$3\")' -"
-    elif [ $1 = "name" ]
-    then
-        watch -n .1 -d "kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone $2 | yq e 'select(.metadata.name == \"$3\")' -"
-    else
-        watch -n .1 -d "kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone $1"
-    fi
+get_all_kube_resources() {
+  local namespace=${1:?Must provide a namespace}
+  kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n ${namespace}
 }
+
+get_role_and_clusterRole_by_serviceAccount() {
+  local sa=${1:?Must provide a serviceAccount}
+  echo "Role and ClusterRole for $sa"
+  kubectl get rolebinding,clusterrolebinding --all-namespaces -o jsonpath='{range .items[?(@.subjects[0].name=="'"$sa"'")]}[{.roleRef.kind},{.roleRef.name}]{end}'
+  echo
+}
+
+# Kustomize
+alias kkustomize="kubectl kustomize --enable-helm --load-restrictor=LoadRestrictionsNone"
+alias kkkustomize="kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone"
 
 kget() {
     if [ "$1" = "kind" ]
@@ -98,6 +100,22 @@ kget() {
     fi
 }
 
+kwatch() {
+    if [ $1 = "kind" ]
+    then
+        watch -n .1 -d "kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone $2 | yq e 'select(.kind == \"$3\")' -"
+    elif [ $1 = "name" ]
+    then
+        watch -n .1 -d "kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone $2 | yq e 'select(.metadata.name == \"$3\")' -"
+    else
+        watch -n .1 -d "kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone $1"
+    fi
+}
+
+
+##############################
+# Claude Code
+##############################
 # Claude Code through LiteLLM, so Claude can hand work to local models as subagents.
 claude-hybrid() {
   ANTHROPIC_BASE_URL=http://192.168.40.142:4000 \
