@@ -46,44 +46,6 @@ alias kuebctl='kubectl'
 alias kall="kubectl-get_all"
 alias kneat="kubectl-neat"
 
-kexec() {
-  kubectl get pods -n $1
-  echo "-----------------------------------------------------------------------------------\n"
-  read "?Which pod? " podName
-
-  numContainers=$(kubectl get pods -n $1 $podName -o jsonpath='{range .spec.containers[*]}{.name}{"\n"}{end}' | wc -l)
-
-  if [ $numContainers -gt 1 ]; then
-    echo "Multiple containers detected in pod.\n"
-    kubectl get pods -n $1 $podName -o jsonpath='{range .spec.containers[*]}{.name}{"\n"}{end}'
-    echo "-----------------------------------------------------------------------------------\n"
-    read "?Which container? " containerName
-  fi
-
-  echo "Executing into container now."
-  echo "-----------------------------------------------------------------------------------\n"
-
-  if [[ -n "$containerName" ]]; then
-    kubectl exec -it -n $1 $podName -c $containerName -- sh
-  else
-    kubectl exec -it -n $1 $podName -- sh
-  fi
-
-  unset numContainers containerName
-}
-
-get_all_kube_resources() {
-  local namespace=${1:?Must provide a namespace}
-  kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n ${namespace}
-}
-
-get_role_and_clusterRole_by_serviceAccount() {
-  local sa=${1:?Must provide a serviceAccount}
-  echo "Role and ClusterRole for $sa"
-  kubectl get rolebinding,clusterrolebinding --all-namespaces -o jsonpath='{range .items[?(@.subjects[0].name=="'"$sa"'")]}[{.roleRef.kind},{.roleRef.name}]{end}'
-  echo
-}
-
 # Kustomize
 alias kkustomize="kubectl kustomize --enable-helm --load-restrictor=LoadRestrictionsNone"
 alias kkkustomize="kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone"
