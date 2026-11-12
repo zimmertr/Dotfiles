@@ -13,14 +13,25 @@ alias sublime='subl'
 ##############################
 # macOS
 ##############################
-# BSD ls: -G is color here, but means "no group" in GNU ls.
-alias ls="clear;ls -alFGirth"
-alias flush="sudo arp -d -a; dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
-alias internalip='ipconfig getifaddr en0'
-alias typora="open -a typora"
+if [[ $OSTYPE == darwin* ]]; then
+  # BSD ls: -G is color here, but means "no group" in GNU ls.
+  alias ls="clear;ls -alFGirth"
+  alias flush="sudo arp -d -a; dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+  alias internalip='ipconfig getifaddr en0'
+  alias typora="open -a typora"
 
-# iTerm2
-alias clearh="echo -ne '\033]50;ClearScrollback\a'"
+  # iTerm2
+  alias clearh="echo -ne '\033]50;ClearScrollback\a'"
+fi
+
+
+##############################
+# Linux
+##############################
+if [[ $OSTYPE == linux* ]]; then
+  alias ls="clear;ls --color=auto -alFirth"
+  alias internalip="hostname -I | awk '{print \$1}'"
+fi
 
 
 ##############################

@@ -36,6 +36,8 @@ killall Dock
 
 ### ZSH
 
+The ZSH and Git files work on both macOS and Linux. Anything OS specific is guarded, and plugins are found under Homebrew or `/usr/share`.
+
 ```bash
 ln -s ~/git/personal/Dotfiles/zsh/zshrc ~/.zshrc
 ln -s ~/git/personal/Dotfiles/zsh/zsh_aliases ~/.zsh_aliases

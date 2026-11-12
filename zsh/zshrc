@@ -2,7 +2,6 @@
 # Dotfiles
 ##############################
 source ~/.zsh_environment
-source ~/.zsh_aliases
 
 
 ##############################
@@ -26,18 +25,33 @@ HIST_STAMPS="mm/dd/yyyy"
 plugins=(docker docker-compose git gitfast kubectl kubectx kube-ps1)
 source $ZSH/oh-my-zsh.sh
 
+# After Oh My Zsh, which defines its own ls alias.
+source ~/.zsh_aliases
+
 
 ##############################
 # Homebrew
 ##############################
-eval "$(/opt/homebrew/bin/brew shellenv)"
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+# Apple Silicon, Intel Mac, then Linuxbrew. Skipped where brew isn't installed.
+for brew_bin in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+  [[ -x $brew_bin ]] && eval "$($brew_bin shellenv)" && break
+done
+unset brew_bin
+(( $+commands[brew] )) && FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -Uz compinit
 compinit
 
-# Plugins
-source /opt/homebrew/share/kube-ps1.sh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Plugins: Homebrew keeps them under its prefix, distro packages under /usr/share.
+source_first() {
+  local f
+  for f in "$@"; do
+    [[ -r $f ]] && source "$f" && return
+  done
+}
+source_first "$HOMEBREW_PREFIX/share/kube-ps1.sh" /usr/share/kube-ps1/kube-ps1.sh
+source_first "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Keeps the prompt working where kube-ps1 isn't installed.
+(( $+functions[kube_ps1] )) || kube_ps1() { }
 
 
 ##############################
@@ -49,9 +63,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # Case-insensitive tab
 
 # CLIs that ship their own completions instead of a site-functions file
 autoload -Uz bashcompinit && bashcompinit
-source <(kubectl completion zsh)
-source <(kubectl-argo-rollouts completion zsh)
-complete -C '/opt/homebrew/bin/aws_completer' aws
+(( $+commands[kubectl] )) && source <(kubectl completion zsh)
+(( $+commands[kubectl-argo-rollouts] )) && source <(kubectl-argo-rollouts completion zsh)
+(( $+commands[aws_completer] )) && complete -C aws_completer aws
 
 
 ##############################
@@ -87,4 +101,4 @@ export PS1='
 # Syntax Highlighting
 ##############################
 # Must be sourced last so it wraps every widget defined above.
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source_first "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -1,5 +1,5 @@
 [core]
-    excludesfile = /Users/tj/.gitignore
+    excludesfile = ~/.gitignore
 
 [init]
     defaultBranch = main
@@ -17,8 +17,8 @@
 # Let gh supply GitHub credentials so no token is stored for git.
 [credential "https://github.com"]
     helper =
-    helper = !/opt/homebrew/bin/gh auth git-credential
+    helper = !gh auth git-credential
 
 [credential "https://gist.github.com"]
     helper =
-    helper = !/opt/homebrew/bin/gh auth git-credential
+    helper = !gh auth git-credential

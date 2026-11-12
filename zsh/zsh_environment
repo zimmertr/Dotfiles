@@ -9,8 +9,10 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/go/bin:$HOME/.local/bin:$PATH"
 ##############################
 # macOS
 ##############################
-# BSD ls and friends only color output when this is set.
-export CLICOLOR=1
+if [[ $OSTYPE == darwin* ]]; then
+  # BSD ls and friends only color output when this is set.
+  export CLICOLOR=1
+fi
 
 
 ##############################
