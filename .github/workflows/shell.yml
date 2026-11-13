@@ -53,7 +53,11 @@ jobs:
       # A normal install doesn't have them; this is the fix zsh suggests.
       - name: Secure completion folders
         if: runner.os == 'Linux'
-        run: zsh -i -c compaudit 2>/dev/null | xargs -r sudo chmod g-w,o-w
+        run: |
+          # Oh My Zsh prints its own warning on stdout, so take the shell's
+          # fpath after a marker and audit it in a clean zsh.
+          fp=$(zsh -i -c 'print -rl -- __FPATH__ $fpath' 2>/dev/null | sed -n '/^__FPATH__$/,$p' | tail -n +2)
+          zsh -fc 'fpath=(${(f)1}); autoload -Uz compaudit; compaudit' zsh "$fp" | xargs -r -d '\n' sudo chmod g-w,o-w
 
       - name: Parse every zsh file
         run: |
