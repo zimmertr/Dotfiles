@@ -44,7 +44,7 @@ jobs:
 
       - name: Link the dotfiles
         run: |
-          for f in zshrc zsh_aliases zsh_functions zsh_environment; do
+          for f in zshenv zshrc zsh_aliases zsh_functions zsh_environment; do
             ln -sf "$GITHUB_WORKSPACE/zsh/$f" "$HOME/.$f"
           done
 

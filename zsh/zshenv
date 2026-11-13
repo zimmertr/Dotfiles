@@ -1,0 +1,6 @@
+##############################
+# Linux
+##############################
+# Ubuntu's /etc/zsh/zshrc runs its own compinit unless this is set. Oh My Zsh
+# already runs one, and Ubuntu's aborts if a completion folder looks insecure.
+skip_global_compinit=1
