@@ -12,8 +12,9 @@
 *.swp
 *.swo
 
-# Sublime Text
+# Editors
 *.sublime-workspace
+.vscode/
 
 # Secrets
 .env
