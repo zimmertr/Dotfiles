@@ -5,8 +5,6 @@ tap "argoproj/tap"
 tap "hashicorp/tap"
 
 # Shell
-brew "git"
-brew "vim"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
@@ -14,7 +12,6 @@ brew "zsh-syntax-highlighting"
 brew "awscli"
 brew "gh"
 brew "htop"
-brew "jq"
 brew "nmap"
 brew "speedtest-cli"
 brew "tree"
