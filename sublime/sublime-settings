@@ -4,7 +4,7 @@
 	"detect_indentation": true,
 	"ensure_newline_at_eof_on_save": true,
 	"hardware_acceleration": "opengl",
-	"font_size": 16,
+	"font_size": 15,
 	"hide_new_tab_button": true,
 	"highlight_modified_tabs": true,
 	"remember_layout": true,
@@ -14,4 +14,9 @@
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": "all",
 	"update_check": true,
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"index_files": true,
 }

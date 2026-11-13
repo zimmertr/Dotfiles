@@ -1,5 +1,5 @@
 [core]
-    excludesfile = /Users/tj/.gitignore
+    excludesfile = ~/.gitignore
 
 [init]
     defaultBranch = main
@@ -13,3 +13,12 @@
 [user]
     email = tj@tjzimmerman.com
     name = TJ Zimmerman
+
+# Let gh supply GitHub credentials so no token is stored for git.
+[credential "https://github.com"]
+    helper =
+    helper = !gh auth git-credential
+
+[credential "https://gist.github.com"]
+    helper =
+    helper = !gh auth git-credential

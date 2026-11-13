@@ -1,27 +1,58 @@
-# Helpers
-alias clearh="echo -ne '\033]50;ClearScrollback\a'"
-alias externalip='curl ifconfig\.me/ip'
-alias flush="sudo arp -d -a; dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
-
-# ZSH
+##############################
+# Shell
+##############################
 alias aliases="vim ~/.zsh_aliases"
 alias updatezsh="source ~/.zshrc"
-
-# Tweaks
-alias ls="clear;ls -alFGirth"
 alias tree="tree -CFh"
 
-# Programs
+# Tools
+alias externalip='curl ifconfig\.me/ip'
 alias sublime='subl'
-alias typora="open -a typora"
 
+
+##############################
+# macOS
+##############################
+if [[ $OSTYPE == darwin* ]]; then
+  # BSD ls: -G is color here, but means "no group" in GNU ls.
+  alias ls="clear;ls -alFGirth"
+  alias flush="sudo arp -d -a; dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+  alias internalip='ipconfig getifaddr en0'
+  alias typora="open -a typora"
+
+  # iTerm2
+  alias clearh="echo -ne '\033]50;ClearScrollback\a'"
+fi
+
+
+##############################
+# Linux
+##############################
+if [[ $OSTYPE == linux* ]]; then
+  alias ls="clear;ls --color=auto -alFirth"
+  alias internalip="hostname -I | awk '{print \$1}'"
+fi
+
+
+##############################
 # Git
+##############################
 alias gitdiff="git --no-pager diff"
+alias gitfiles="git --no-pager diff --name-only"
 alias gitfp="git fetch --all && git pull"
 alias gitlog="git log --oneline --decorate --graph --all"
+alias gittag="git --no-pager tag"
 alias gituntracked="git ls-files --others --exclude-standard"
 
+
+##############################
 # Kubernetes
-alias kkustomize="kubectl kustomize --enable-helm"
-alias kneat="kubectl-neat"
+##############################
+alias k='kubectl'
 alias kuebctl='kubectl'
+alias kall="kubectl-get_all"
+alias kneat="kubectl-neat"
+
+# Kustomize
+alias kkustomize="kubectl kustomize --enable-helm --load-restrictor=LoadRestrictionsNone"
+alias kkkustomize="kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone"

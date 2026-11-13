@@ -1,6 +1,30 @@
+##############################
+# Shell
+##############################
 export EDITOR=vim
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export VISUAL=vim
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$HOME/go/bin:$HOME/.local/bin:$PATH"
 
+
+##############################
+# macOS
+##############################
+if [[ $OSTYPE == darwin* ]]; then
+  # BSD ls and friends only color output when this is set.
+  export CLICOLOR=1
+fi
+
+
+##############################
+# Secrets
+##############################
+# Pulled from gh's keychain login so no token lives in this file.
+export GITHUB_PERSONAL_ACCESS_TOKEN="$(gh auth token 2>/dev/null)"
+
+
+##############################
+# Kube-PS1
+##############################
 export KUBE_PS1_PREFIX=''
 export KUBE_PS1_SYMBOL_ENABLE=false
 export KUBE_PS1_NS_ENABLE=false

@@ -1,9 +1,27 @@
-# MacOS
+# macOS
 .DS_Store
+._*
 
 # Terraform
-.terraform*
+# Not .terraform*, which would also hide .terraform.lock.hcl. That file is committed.
+.terraform/
 *.tfstate*
 
 # Vim
-*.un~
+*~
+*.swp
+*.swo
+
+# Editors
+*.sublime-workspace
+.vscode/
+
+# Secrets
+.env
+.env.local
+google_cloud_credentials.json
+
+# Claude Code
+**/.claude/settings.local.json
+.claude/worktrees/
+CLAUDE.local.md
