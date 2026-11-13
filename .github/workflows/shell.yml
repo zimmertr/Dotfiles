@@ -48,19 +48,6 @@ jobs:
             ln -sf "$GITHUB_WORKSPACE/zsh/$f" "$HOME/.$f"
           done
 
-      # The Ubuntu image ships Linuxbrew with group-writable completion
-      # folders, and compinit refuses those without a terminal to ask on.
-      # A normal install doesn't have them; this is the fix zsh suggests.
-      - name: Secure completion folders
-        if: runner.os == 'Linux'
-        run: |
-          # Oh My Zsh prints its own warning on stdout, so take the shell's
-          # fpath after a marker and audit it in a clean zsh.
-          fp=$(zsh -i -c 'print -rl -- __FPATH__ $fpath' 2>/dev/null | sed -n '/^__FPATH__$/,$p' | tail -n +2)
-          audit() { zsh -fc 'fpath=(${(f)1}); autoload -Uz compaudit; compaudit' zsh "$fp" 2>&1 | grep '^/' || true; }
-          audit | tee /dev/stderr | xargs -r -d '\n' sudo chmod g-w,o-w
-          echo "after:"; audit; ls -ld $(audit) 2>/dev/null || true
-
       - name: Parse every zsh file
         run: |
           for f in zsh/*; do
