@@ -6,3 +6,4 @@ Personal configs for macOS and Linux. Each tool has its own folder; `README.md` 
 - `zsh/`: `zshrc` sources `zsh_environment`, `zsh_aliases` (one-line aliases) and `zsh_functions` (shell functions).
 - Never commit secrets. Tokens come from `gh auth token` or `~/.claude/secrets.json` at runtime.
 - Claude Code config lives in the separate `ai-config` repo, not here.
+- CI: yggdrasil's lint and PR title modules, plus `.github/workflows/shell.yml`, which starts an interactive zsh on Ubuntu and macOS. Add any new alias or function to its `expected` list.
