@@ -86,3 +86,5 @@ ln -s ~/git/personal/Dotfiles/git/gitignore ~/.gitignore
 2. Select `~/git/personal/Dotfiles/istat_menus/iStat_Menus_Settings.ismp`
 3. Navigate to: `iStat Menus -> Registration`
 4. Enter the license key. 
+
+To refresh the file, use `File -> Export Settings`, then delete the `license` entry from the export before committing. It holds the license email and serial.

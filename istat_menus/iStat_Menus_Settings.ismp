@@ -3,31 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>build</key>
-	<string>1226</string>
-	<key>license</key>
-	<dict>
-		<key>email</key>
-		<string>tj@tjzimmerman.com</string>
-		<key>serial</key>
-		<string>What are you snooping for?</string>
-	</dict>
+	<string>1240</string>
 	<key>preferences</key>
 	<dict>
-		<key>CPU_AppFormat</key>
-		<integer>1</integer>
-		<key>CPU_DropdownOrder</key>
-		<string>cpu,processes,gpu,gpu-processes,buttons,uptime,load</string>
 		<key>CPU_DropdownOrderDisabled</key>
-		<string>gpu,gpu-processes,buttons,uptime</string>
-		<key>CPU_MenubarCombineCores</key>
-		<integer>1</integer>
+		<string></string>
 		<key>CPU_MenubarGraphBreakdowns</key>
-		<integer>0</integer>
-		<key>CPU_MenubarGraphOverall</key>
-		<string>0.24 0.44 0.97 1.00</string>
-		<key>CPU_MenubarGraphWidth</key>
-		<real>50</real>
-		<key>CPU_MenubarGroupItems</key>
 		<integer>0</integer>
 		<key>CPU_MenubarMode</key>
 		<array>
@@ -35,185 +16,52 @@
 				<key>key</key>
 				<string>100</string>
 				<key>uuid</key>
-				<string>C190562B-41F3-4654-A552-C8C5A04D4BC6</string>
+				<string>6C90AB98-F9BC-4C69-8DB6-472E659DA38C</string>
 			</dict>
 			<dict>
 				<key>key</key>
-				<string>0</string>
+				<string>1</string>
 				<key>uuid</key>
-				<string>73F8E80A-97BC-4E75-A2CD-8F9FC1D9AF74</string>
+				<string>4D1D48CA-C9F6-4F50-8D76-EB70F586A07F</string>
 			</dict>
 			<dict>
 				<key>key</key>
 				<string>101</string>
 				<key>uuid</key>
-				<string>B3E2B191-2F66-481C-93D2-7AB7BEF46CE6</string>
+				<string>E9CBEB63-31C5-4D84-A96F-B792AC3D01DA</string>
 				<key>width</key>
-				<integer>4</integer>
+				<integer>10</integer>
 			</dict>
 			<dict>
 				<key>key</key>
 				<string>8</string>
 				<key>uuid</key>
-				<string>E583740E-3368-4FBD-ACA9-B17A91DE373D</string>
+				<string>4A721DBD-DA96-491F-A82C-C49D5E61B4AA</string>
 			</dict>
 			<dict>
-				<key>display</key>
-				<integer>1</integer>
 				<key>key</key>
-				<string>11</string>
+				<string>9</string>
 				<key>uuid</key>
-				<string>186F1605-D1DC-4571-A4FD-8205E20D1C6B</string>
+				<string>0F1C99CA-15E2-4010-A537-7B1006F04DE8</string>
 			</dict>
 		</array>
-		<key>CPU_MenubarSingleHistoryGraph</key>
-		<integer>1</integer>
 		<key>CPU_ProcessCount</key>
-		<integer>10</integer>
-		<key>Disks_ActivityGraphMode</key>
-		<integer>2</integer>
-		<key>Disks_DropdownActivityDisplayMode</key>
-		<integer>1</integer>
-		<key>Disks_DropdownOrderDisabled</key>
-		<string>removable,unmounted,buttons</string>
-		<key>Disks_MenubarGraphActivityRead</key>
-		<string>0.00 0.93 0.00 1.00</string>
+		<integer>5</integer>
 		<key>Disks_MenubarItems</key>
 		<array>
 			<dict>
 				<key>boot</key>
 				<true/>
 				<key>key</key>
-				<string>9CEB38B6-74E9-44D3-9C93-24B79E0F0CA8</string>
+				<string>277BCB22-AB76-4CA9-8E74-023296F61CF5</string>
 				<key>name</key>
 				<string>Macintosh HD</string>
 			</dict>
 		</array>
-		<key>Disks_MenubarMode</key>
-		<array>
-			<dict>
-				<key>key</key>
-				<string>100</string>
-				<key>uuid</key>
-				<string>C0C69249-1A30-450F-89AB-1690D242325F</string>
-			</dict>
-			<dict>
-				<key>key</key>
-				<string>8</string>
-				<key>uuid</key>
-				<string>682993C3-2399-469B-B714-C6C2D446567F</string>
-			</dict>
-		</array>
-		<key>Disks_ProcessCount</key>
-		<integer>10</integer>
 		<key>DropdownTheme-Dark</key>
-		<integer>3</integer>
-		<key>FanControl_Sets</key>
-		<array>
-			<dict>
-				<key>model</key>
-				<string>Mac14,6</string>
-				<key>name</key>
-				<string>Medium</string>
-				<key>speeds</key>
-				<array>
-					<dict>
-						<key>fan</key>
-						<string>F0Ac</string>
-						<key>high</key>
-						<integer>5349</integer>
-						<key>low</key>
-						<integer>1350</integer>
-						<key>percentage</key>
-						<integer>50</integer>
-						<key>speed</key>
-						<integer>3349</integer>
-					</dict>
-					<dict>
-						<key>fan</key>
-						<string>F1Ac</string>
-						<key>high</key>
-						<integer>5777</integer>
-						<key>low</key>
-						<integer>1450</integer>
-						<key>percentage</key>
-						<integer>50</integer>
-						<key>speed</key>
-						<integer>3613</integer>
-					</dict>
-				</array>
-				<key>uuid</key>
-				<string>4DE21673-5206-4D9F-89AD-19ABCFEA15CC</string>
-			</dict>
-			<dict>
-				<key>model</key>
-				<string>Mac14,6</string>
-				<key>name</key>
-				<string>High</string>
-				<key>speeds</key>
-				<array>
-					<dict>
-						<key>fan</key>
-						<string>F0Ac</string>
-						<key>high</key>
-						<integer>5349</integer>
-						<key>low</key>
-						<integer>1350</integer>
-						<key>percentage</key>
-						<integer>100</integer>
-						<key>speed</key>
-						<integer>5349</integer>
-					</dict>
-					<dict>
-						<key>fan</key>
-						<string>F1Ac</string>
-						<key>high</key>
-						<integer>5777</integer>
-						<key>low</key>
-						<integer>1450</integer>
-						<key>percentage</key>
-						<integer>100</integer>
-						<key>speed</key>
-						<integer>5777</integer>
-					</dict>
-				</array>
-				<key>uuid</key>
-				<string>E7F30921-CD75-4CD0-9723-72C852F6D182</string>
-			</dict>
-		</array>
-		<key>GPU_MenubarGraphProcessor</key>
-		<string>0.74 0.00 0.97 1.00</string>
-		<key>GPU_MenubarGraphWidth</key>
-		<real>50</real>
-		<key>GPU_MenubarTextColorProcessor-Dark</key>
-		<string>0.99 1.00 0.92 1.00</string>
-		<key>Memory_AppFormat</key>
-		<integer>2</integer>
-		<key>Memory_DropdownOrderDisabled</key>
-		<string>swap,pages,buttons</string>
-		<key>Memory_MenubarGraphBreakdowns</key>
-		<integer>0</integer>
-		<key>Memory_MenubarGraphWidth</key>
-		<real>50</real>
-		<key>Memory_MenubarMode</key>
-		<array>
-			<dict>
-				<key>key</key>
-				<string>100</string>
-				<key>uuid</key>
-				<string>70B95DC6-AE3B-47C9-8698-733DE1B210E8</string>
-			</dict>
-			<dict>
-				<key>key</key>
-				<string>0</string>
-				<key>uuid</key>
-				<string>D96EBB9C-7086-415B-BD71-5FD6D1BCB740</string>
-			</dict>
-		</array>
-		<key>Memory_ProcessCount</key>
-		<integer>10</integer>
+		<integer>1</integer>
 		<key>MenubarGraphOpacity-Dark-Modern</key>
-		<real>0.37503126263618469</real>
+		<real>0.42057812213897705</real>
 		<key>MenubarGraphSize</key>
 		<integer>0</integer>
 		<key>MenubarSkinColor-Dark</key>
@@ -230,33 +78,21 @@
 		<true/>
 		<key>Migrated_WeatherProvider</key>
 		<true/>
-		<key>Network_DropdownOrderDisabled</key>
-		<string>inactive,buttons</string>
-		<key>Network_MenubarFontStyle</key>
-		<integer>0</integer>
 		<key>Network_MenubarMode</key>
 		<array>
 			<dict>
 				<key>key</key>
 				<string>4</string>
 				<key>uuid</key>
-				<string>46B32A32-B418-4312-84FF-81F5CACDCC7B</string>
+				<string>63CE1FD7-81AA-46FD-85B4-44CBDF8585F9</string>
 			</dict>
 			<dict>
 				<key>key</key>
 				<string>0</string>
 				<key>uuid</key>
-				<string>D4088DFA-9C7D-4436-8901-DC85C9E3949E</string>
+				<string>0E7EB550-F6BC-47DF-84B3-F89DD4D32F12</string>
 			</dict>
 		</array>
-		<key>Network_MenubarUnitLevel</key>
-		<integer>3</integer>
-		<key>Network_ProcessCount</key>
-		<integer>10</integer>
-		<key>Network_TextDownloadColor-Dark</key>
-		<string>1.00 0.00 0.00 1.00</string>
-		<key>Network_TextUploadColor-Dark</key>
-		<string>0.00 1.00 0.00 1.00</string>
 		<key>Notifications-Enabled</key>
 		<false/>
 		<key>Notifications-Items</key>
@@ -269,7 +105,7 @@
 				<key>rule-type</key>
 				<string>18</string>
 				<key>uuid</key>
-				<string>4B0E87F4-46BD-4F1D-8CD0-13DE39FDE495</string>
+				<string>7188E7BE-CD0E-471C-A3BB-C41A3117511D</string>
 				<key>value</key>
 				<string>978332400</string>
 			</dict>
@@ -281,7 +117,7 @@
 				<key>rule-type</key>
 				<string>17</string>
 				<key>uuid</key>
-				<string>96388F06-FAAE-4D31-9252-83B2EC31CBA4</string>
+				<string>6CB3D350-712A-4D3B-BBBA-B207866D8B4B</string>
 				<key>value</key>
 				<string>1.00</string>
 			</dict>
@@ -293,7 +129,7 @@
 				<key>rule-type</key>
 				<string>14</string>
 				<key>uuid</key>
-				<string>F9786F69-5A20-455B-8128-9B30408D20CE</string>
+				<string>68096EAF-F07C-4BE1-B080-41861E4FF03C</string>
 				<key>value</key>
 				<string>10.00</string>
 			</dict>
@@ -305,34 +141,32 @@
 				<key>rule-type</key>
 				<string>20</string>
 				<key>uuid</key>
-				<string>8A889091-2E7B-46EA-82D9-80219C87D011</string>
+				<string>9DF86F1B-D0F6-4A62-96B0-892E47D6F966</string>
 				<key>value</key>
 				<string>10.00</string>
 			</dict>
 		</array>
-		<key>Sensors-Limits-Updated</key>
-		<true/>
-		<key>Sensors_DropdownOrderDisabled</key>
-		<string>frequency,power,voltage,ampwerage,ambient-light,buttons</string>
 		<key>Sensors_MenubarMode</key>
 		<array>
 			<dict>
 				<key>key</key>
+				<string>100</string>
+				<key>uuid</key>
+				<string>895E27F8-8E47-4D04-906D-B3D9D8739FAF</string>
+			</dict>
+			<dict>
+				<key>key</key>
 				<string>0</string>
 				<key>uuid</key>
-				<string>11A8AD53-5F10-4F5E-82E7-D753391D62E1</string>
+				<string>3C028423-D1F7-4929-A6B8-FD1538B8142B</string>
 			</dict>
 		</array>
-		<key>Sensors_TemperatureMode</key>
-		<integer>0</integer>
 		<key>StatusItems-Order</key>
 		<array>
-			<integer>9</integer>
-			<integer>5</integer>
-			<integer>4</integer>
-			<integer>3</integer>
-			<integer>2</integer>
 			<integer>1</integer>
+			<integer>2</integer>
+			<integer>3</integer>
+			<integer>4</integer>
 		</array>
 		<key>Time_MenubarFormat</key>
 		<array>
@@ -349,61 +183,18 @@
 				</array>
 			</dict>
 		</array>
-		<key>TimerFrequency</key>
-		<integer>2</integer>
-		<key>Weather_AvailableProviders</key>
-		<array>
-			<dict>
-				<key>key</key>
-				<string>apple</string>
-				<key>name</key>
-				<string>Apple Weather</string>
-			</dict>
-			<dict>
-				<key>key</key>
-				<string>accuweather</string>
-				<key>name</key>
-				<string>AccuWeather</string>
-			</dict>
-			<dict>
-				<key>key</key>
-				<string>aeris</string>
-				<key>name</key>
-				<string>Aeris Weather</string>
-			</dict>
-			<dict>
-				<key>key</key>
-				<string>environmentcanada</string>
-				<key>name</key>
-				<string>Environment Canada - Canada Only</string>
-			</dict>
-			<dict>
-				<key>key</key>
-				<string>willyweather</string>
-				<key>name</key>
-				<string>WillyWeather (BoM) - Australia Only</string>
-			</dict>
-		</array>
-		<key>Weather_DropdownHideDecimals</key>
-		<integer>1</integer>
-		<key>Weather_DropdownOrderDisabled</key>
-		<string></string>
-		<key>Weather_Mode</key>
-		<integer>1</integer>
-		<key>Weather_TimeUnits</key>
-		<integer>0</integer>
 		<key>Zarya-TLE</key>
 		<dict>
 			<key>time</key>
-			<real>1697242189.0468159</real>
+			<real>1738710636.479024</real>
 			<key>tle</key>
 			<string>ISS (ZARYA)             
-1 25544U 98067A   23286.84968823  .00020287  00000+0  36028-3 0  9999
-2 25544  51.6410 100.7716 0004868 105.1862  34.7286 15.50169148420196
+1 25544U 98067A   25035.62619039  .00014709  00000+0  26709-3 0  9998
+2 25544  51.6374 243.6061 0003513 275.7741 124.9443 15.49797991494606
 </string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>6.72</string>
+	<string>6.73</string>
 </dict>
 </plist>
