@@ -1,16 +1,16 @@
 A File Icon
-Bracket Highlighter
+BracketHighlighter
 Color Highlighter
 Dockerfile Syntax Highlighting
 Git
-GitGutter
-Git Blame
+Git blame
 Git Conflict Resolver
-Kubernetes Manifest Autocomplete
+GitGutter
+Kubernetes Manifest autocomplete
 Origami
 Pretty JSON
-Single Trailing Newline
 SFTP
+SingleTrailingNewLine
 SublimeLinter
 Terminus
 Terraform

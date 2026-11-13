@@ -5,6 +5,7 @@
     - [Homebrew](#homebrew)
     - [ZSH](#zsh)
     - [Vim](#vim)
+    - [Sublime](#sublime)
     - [Git](#git)
     - [Iterm2](#iterm2)
     - [Rectangle](#rectangle)
@@ -51,6 +52,15 @@ ln -s ~/git/personal/Dotfiles/zsh/zsh_environment ~/.zsh_environment
 ln -s ~/git/personal/Dotfiles/vim/vimrc ~/.vimrc
 ```
 
+### Sublime
+
+```bash
+ln -sf ~/git/personal/Dotfiles/sublime/sublime-settings ~/Library/Application\ Support/Sublime\ Text/Packages/User/Preferences.sublime-settings
+ln -sf ~/git/personal/Dotfiles/sublime/sublime-keymap ~/Library/Application\ Support/Sublime\ Text/Packages/User/Default\ \(OSX\).sublime-keymap
+```
+
+Install the packages in `sublime/sublime-packages` through Package Control.
+
 ### Git
 
 ```bash
@@ -62,7 +72,7 @@ ln -s ~/git/personal/Dotfiles/git/gitignore ~/.gitignore
 
 1. Navigate to: `Iterm2 -> Settings -> General -> Preferences`
 2. Select `Load preferences from a custom folder or URL`
-3. Enter `/Users/tj/git/personal/dotfiles/iterm2`
+3. Enter `/Users/tj/git/personal/Dotfiles/iterm2`
 4. Set `Save changes` to `Automatically`. 
 
 ### Rectangle
