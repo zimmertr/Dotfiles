@@ -5,6 +5,19 @@ source ~/.zsh_environment
 
 
 ##############################
+# Homebrew
+##############################
+# Apple Silicon, Intel Mac, then Linuxbrew. Skipped where brew isn't installed.
+for brew_bin in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+  [[ -x $brew_bin ]] && eval "$($brew_bin shellenv)" && break
+done
+unset brew_bin
+# Before Oh My Zsh, whose compinit then picks up brew's completions. A second
+# compinit of our own would abort on any folder it thinks is insecure.
+[[ -n $HOMEBREW_PREFIX ]] && FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
+
+
+##############################
 # Oh My Zsh
 ##############################
 CASE_SENSITIVE="true"
@@ -31,18 +44,9 @@ source ~/.zsh_functions
 
 
 ##############################
-# Homebrew
+# Plugins
 ##############################
-# Apple Silicon, Intel Mac, then Linuxbrew. Skipped where brew isn't installed.
-for brew_bin in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
-  [[ -x $brew_bin ]] && eval "$($brew_bin shellenv)" && break
-done
-unset brew_bin
-(( $+commands[brew] )) && FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-autoload -Uz compinit
-compinit
-
-# Plugins: Homebrew keeps them under its prefix, distro packages under /usr/share.
+# Homebrew keeps them under its prefix, distro packages under /usr/share.
 source_first() {
   local f
   for f in "$@"; do

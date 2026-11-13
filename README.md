@@ -50,6 +50,7 @@ RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/o
 Then link the files. `ln -sf` replaces any file already there, so check the repo copy has everything you need first.
 
 ```bash
+ln -sf ~/git/personal/Dotfiles/zsh/zshenv ~/.zshenv
 ln -sf ~/git/personal/Dotfiles/zsh/zshrc ~/.zshrc
 ln -sf ~/git/personal/Dotfiles/zsh/zsh_aliases ~/.zsh_aliases
 ln -sf ~/git/personal/Dotfiles/zsh/zsh_functions ~/.zsh_functions

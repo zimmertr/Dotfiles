@@ -1,0 +1,73 @@
+name: Shell
+
+# The zsh files run on both macOS and Linux, and a typo in one only shows up
+# the next time a terminal opens. This links them into the runner's home the
+# way the README does and starts a real interactive shell on each OS.
+#
+# The default-branch ruleset requires `Shell (ubuntu-latest)` and
+# `Shell (macos-latest)`; renaming the job or the matrix strands PRs on a check
+# that never reports.
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: shell-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  shell:
+    name: Shell (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    permissions:
+      contents: read # check out the dotfiles
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install zsh
+        if: runner.os == 'Linux'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq zsh
+
+      # zshrc sources Oh My Zsh, so the shell can't start without it.
+      - name: Install Oh My Zsh
+        run: git clone --quiet --depth 1 https://github.com/ohmyzsh/ohmyzsh "$HOME/.oh-my-zsh"
+
+      - name: Link the dotfiles
+        run: |
+          for f in zshenv zshrc zsh_aliases zsh_functions zsh_environment; do
+            ln -sf "$GITHUB_WORKSPACE/zsh/$f" "$HOME/.$f"
+          done
+
+      - name: Parse every zsh file
+        run: |
+          for f in zsh/*; do
+            zsh -n "$f"
+          done
+
+      - name: Start an interactive shell
+        shell: zsh {0}
+        run: |
+          # Anything on stderr at startup is a broken line in the dotfiles.
+          errors=$(zsh -i -c exit 2>&1 >/dev/null)
+          if [[ -n $errors ]]; then
+            print -r -- "$errors"
+            exit 1
+          fi
+
+          expected=(gitdb kget kwatch claude-hybrid ls k kneat kall)
+          if [[ $OSTYPE == darwin* ]]; then
+            expected+=(flush clearh internalip typora)
+          else
+            expected+=(internalip)
+          fi
+          zsh -i -c "whence -w $expected" || exit 1
