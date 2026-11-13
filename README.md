@@ -21,6 +21,8 @@ I live by the terminal, and therefore by my personal configs. Here is a collecti
 
 ### Homebrew
 
+macOS only. Linux uses its own package lists.
+
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew bundle --file=~/git/personal/Dotfiles/Brewfile
@@ -39,17 +41,25 @@ killall Dock
 
 The ZSH and Git files work on both macOS and Linux. Anything OS specific is guarded, and plugins are found under Homebrew or `/usr/share`.
 
+Install Oh My Zsh first, without letting it replace `.zshrc`:
+
 ```bash
-ln -s ~/git/personal/Dotfiles/zsh/zshrc ~/.zshrc
-ln -s ~/git/personal/Dotfiles/zsh/zsh_aliases ~/.zsh_aliases
-ln -s ~/git/personal/Dotfiles/zsh/zsh_functions ~/.zsh_functions
-ln -s ~/git/personal/Dotfiles/zsh/zsh_environment ~/.zsh_environment
+RUNZSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Then link the files. `ln -sf` replaces any file already there, so check the repo copy has everything you need first.
+
+```bash
+ln -sf ~/git/personal/Dotfiles/zsh/zshrc ~/.zshrc
+ln -sf ~/git/personal/Dotfiles/zsh/zsh_aliases ~/.zsh_aliases
+ln -sf ~/git/personal/Dotfiles/zsh/zsh_functions ~/.zsh_functions
+ln -sf ~/git/personal/Dotfiles/zsh/zsh_environment ~/.zsh_environment
 ```
 
 ### Vim
 
 ```bash
-ln -s ~/git/personal/Dotfiles/vim/vimrc ~/.vimrc
+ln -sf ~/git/personal/Dotfiles/vim/vimrc ~/.vimrc
 ```
 
 ### Sublime
@@ -64,8 +74,8 @@ Install the packages in `sublime/sublime-packages` through Package Control.
 ### Git
 
 ```bash
-ln -s ~/git/personal/Dotfiles/git/gitconfig ~/.gitconfig
-ln -s ~/git/personal/Dotfiles/git/gitignore ~/.gitignore
+ln -sf ~/git/personal/Dotfiles/git/gitconfig ~/.gitconfig
+ln -sf ~/git/personal/Dotfiles/git/gitignore ~/.gitignore
 ```
 
 ### Iterm2
