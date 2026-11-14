@@ -17,6 +17,6 @@ permissions: {}
 jobs:
   lint:
     name: Lint
-    uses: zimmertr/yggdrasil/.github/workflows/lint.yml@5e0beadd180895403b884af94c1fca0d613e32e7 # v1.2.8
+    uses: zimmertr/yggdrasil/.github/workflows/lint.yml@f5661bbe5864dfae07e6dbd603489e2326980b3d # v2.0.0
     permissions:
       contents: read # the module checks out the repo
