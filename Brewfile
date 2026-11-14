@@ -2,6 +2,7 @@
 # Install with: brew bundle --file=~/git/personal/Dotfiles/Brewfile
 
 tap "argoproj/tap"
+tap "dkorunic/tap"
 tap "hashicorp/tap"
 
 # Shell
@@ -12,6 +13,8 @@ brew "zsh-syntax-highlighting"
 brew "awscli"
 brew "gh"
 brew "htop"
+# iSMC reads the CPU temperature without sudo, for the Claude Code status line in ai-config.
+brew "dkorunic/tap/ismc", trusted: true
 brew "nmap"
 brew "speedtest-cli"
 brew "tree"
